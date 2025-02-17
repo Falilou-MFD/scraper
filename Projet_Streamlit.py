@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="Scraper App", layout="wide")
 
 # Sidebar navigation
-menu = st.sidebar.radio("Navigation", ["Scraper en temps réel", "Télécharger les données", "Formulaire KoboToolbox", "Formulaire Google Forms"])
+menu = st.sidebar.radio("Navigation", ["Scraper en temps réel(BeautifulSoup)", "Télécharger les données(WebScraper)", "Formulaire KoboToolbox", "Formulaire Google Forms"])
 
 # Fonction de scraping
 def scrape_shoes(pages, category):
@@ -31,8 +31,8 @@ def scrape_shoes(pages, category):
                 pass
     return pd.DataFrame(data)
 
-if menu == "Scraper en temps réel":
-    st.title("📌 Scraping en temps réel")
+if menu == "Scraper en temps réel(BeautifulSoup)":
+    st.title("📌 Scraping en temps réel(BeautifulSoup)")
     pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=200, value=2)
     category = st.radio("Choisissez la catégorie :", ["Hommes", "Enfants"], horizontal=True)
     if st.button("Lancer le scraping"):
@@ -46,7 +46,7 @@ if menu == "Scraper en temps réel":
             
 
 
-elif menu == "Télécharger les données":
+elif menu == "Télécharger les données(WebScraper)":
     st.title("📂 Télécharger un fichier CSV")
     category_download = st.radio("Télécharger les données pour :", ["Hommes", "Enfants"], horizontal=True)
     file_path = "data/chaussures_hommes_ws.csv" if category_download == "Hommes" else "data/chaussures_enfants_ws.csv"
