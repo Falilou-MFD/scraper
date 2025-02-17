@@ -1,0 +1,6 @@
+bs4
+requests
+pandas
+streamlit
+streamlit.components.v1
+
